@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 src/app.js"
+    "start": "nodemon --exec babel-node --presets env,stage-2 src/app.js",
+    "test": "nodemon --exec babel-node --presets env,stage-2 --inspect src/app.js"
   },
   "author": "Oleksandr Lisivka",
   "license": "ISC",

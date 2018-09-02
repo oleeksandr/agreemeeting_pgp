@@ -37,15 +37,17 @@ app.post('/pgpgen', (req, res) => {
             passphrase: passphrase
         };
         console.log(options);
-        var pubKey, privKey;
+        var pubKey, privKey, fingerPrint;
         // (async() => {
         generateKey(options).then(key => {
             privKey = key.privateKeyArmored;
             pubKey = key.publicKeyArmored;
+            fingerPrint = key.key.keyPacket.getFingerprint();
             console.log('Key generated');
             const resObj = {
                 privKey,
-                pubKey
+                pubKey,
+                fingerPrint
             }
             console.log(resObj);
             res.send(resObj);
